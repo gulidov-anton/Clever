@@ -1,7 +1,6 @@
 import React from 'react';
-import './app.css';
 import { Header } from '../header/index';
-
+import './app.css';
 
 export const App = (props) => (
     <div className="app">
