@@ -1,2 +1,2 @@
 # Clever
-React App
+React App for Clevertec
