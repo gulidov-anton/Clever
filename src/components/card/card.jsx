@@ -1,4 +1,5 @@
 import React from 'react';
+
 import style from './card.module.css';
 
 
@@ -7,9 +8,7 @@ export class Card extends React.Component {
         return (
             <dev className={style.card}>
                 <h2>Карточка товара</h2>
-                <p>{this.props.id}</p>
                 <p>{this.props.title}</p>
-                <p>{this.props.src}</p>
                 <p>{this.props.price} рублей</p>
             </dev>
         )

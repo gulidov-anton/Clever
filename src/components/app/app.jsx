@@ -8,6 +8,5 @@ export const App = () => (
     <div className="app">
         <Header />
         <Main />
-        REACT APP
     </div>
 )
