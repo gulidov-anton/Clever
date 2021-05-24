@@ -1,27 +1,14 @@
 import React from 'react';
-import Card from '../card';
+import { Card } from '../card';
+import { goods } from '../../data/goods';
 import style from './main.module.css';
 
-const data = [
-    {
-        title: 'Чайник',
-        id: 1,
-    },
-    {
-        title: 'Тостер',
-        id: 2,
-    },
-    {
-        title: 'Миксер',
-        id: 3,
-    }
-];
 
 export class Main extends React.Component {
     render() {
         return (
             <main className={style.main}>
-                {data.map((item) => <Card />)}
+                {goods.map((item) => <Card id={item.id} title={item.title} src={item.src} price={item.price}/>)}
             </main>
         )
     }
