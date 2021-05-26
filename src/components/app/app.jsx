@@ -1,10 +1,12 @@
 import React from 'react';
-import { Header } from '../header/index';
+import { Header } from '../header';
+import { Main } from '../main';
+
 import './app.css';
 
-export const App = (props) => (
+export const App = () => (
     <div className="app">
         <Header />
-        REACT APP
+        <Main />
     </div>
 )

@@ -1,13 +1,15 @@
 import React from 'react';
-import './header.css';
-import logoImg from './assets/logo.svg';
+import logo from './assets/logo.svg';
+import style from './header.module.css';
 
+const bool = true;
 
 export class Header extends React.Component {
     render() {
         return (
-            <header className="header">
-                <img src= {logoImg} alt="atom-picture" className="img-header"/>
+            <header className={style.header}>
+                <img src={logo} alt="atom" className={style.logo}/>
+                <div style={{backgroundColor: bool ? "yellow" : "green"}}>Надпись</div>
                 HEADER
             </header>
         )
