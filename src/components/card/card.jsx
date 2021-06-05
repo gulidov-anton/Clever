@@ -5,15 +5,11 @@ import style from './card.module.css';
 export class Card extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { counter: 0 };
-        this.onCounterChange = this.onCounterChange.bind(this);
         this.onDescriptionChange = this.onDescriptionChange.bind(this);
     }
 
-    onCounterChange({ target: { value } }) {
-        this.setState({
-            counter: value,
-        });
+    onCounter = ({ target: { value } }) => {
+        this.props.onCounterChange(this.props.cardData.id, value); 
     }
 
     onDescriptionChange({ target: { value } }) {
@@ -22,20 +18,23 @@ export class Card extends React.Component {
         });
     }
     render() {
+        const {
+            cardData: { title, description, srcImg, price },
+          } = this.props;
         return (
             <dev className={style.card}>
                 <h2>Карточка товара</h2>
-                <p>{this.props.title}</p>
-                <p>{this.props.price} рублей</p>
-                <img src={this.props.srcImg} alt="goods" />
+                <p>{title}</p>
+                <p>{price} рублей</p>
+                <img src={srcImg} alt="goods" />
                 <div>
                     <label>
                     Количество:
                     <input
                         type="number"
                         name="card-counter"
-                        onChange={this.onCounterChange}
-                        value={this.state.counter}
+                        onChange={this.onCounter}
+                        value={this.props.counter}
                     />
                     </label>
                 </div>
@@ -45,7 +44,7 @@ export class Card extends React.Component {
                     <input
                         type="text"
                         onChange={this.onDescriptionChange}
-                        value={this.state.description}
+                        value={description}
                     />
                     </label>
                 </div>
