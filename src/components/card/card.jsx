@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 import style from './card.module.css';
 
 
@@ -18,11 +19,12 @@ export class Card extends React.Component {
         });
     }
     render() {
+        console.log("props:", this.props);
         const {
-            cardData: { title, description, srcImg, price },
+            cardData: { title, description, srcImg, price, counter },
           } = this.props;
         return (
-            <dev className={style.card}>
+            <div className={style.card}>
                 <h2>Карточка товара</h2>
                 <p>{title}</p>
                 <p>{price} рублей</p>
@@ -34,7 +36,7 @@ export class Card extends React.Component {
                         type="number"
                         name="card-counter"
                         onChange={this.onCounter}
-                        value={this.props.counter}
+                        value={counter}
                     />
                     </label>
                 </div>
@@ -50,10 +52,23 @@ export class Card extends React.Component {
                 </div>
                 <div>
                 <h4>В стейте записано: </h4>
-                <p> counter: {this.state.counter}</p>
-                <p> description: {this.state.description}</p>
+                <p> counter: {this.props.counter}</p>
+                <p> description: {this.props.description}</p>
                 </div>
-            </dev>
+                
+            </div>
         )
     }
+}
+
+Card.defaultProps = {
+    cardData: {},
+    counter: null,
+    onCounterChange: () => {},
+}
+
+Card.propTypes = {
+    cardData: PropTypes.objectOf(PropTypes.any),
+    counter: PropTypes.number,
+    onCounterChange: PropTypes.func,
 }
