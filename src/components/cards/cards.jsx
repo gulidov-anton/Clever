@@ -1,34 +1,39 @@
-import React from 'react';
+import React from "react";
 
-import { Card } from '../card/card';
+import { Card } from "../card";
+
 import { data } from "../../data/goods";
-import style from './card.module.css';
 
+import styles from "./cards.module.css";
+
+const DEFAULT_STATE = { kettle: 0, toster: 0, mixer: 0 };
 
 export class Cards extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = { kettle: 0, toster: 0, mixer: 0 };
-        //this.onCounterChange = this.onCounterChange.bind(this);
-        //this.onDescriptionChange = this.onDescriptionChange.bind(this);
-    }
+  constructor(props) {
+    super(props);
+    this.state = DEFAULT_STATE;
+  }
 
-    onCounterChange = (goods, count) => {
-        this.setState({[goods]: count});
-    }
+  onBuy = (goods, count) => {
+    this.setState({ [goods]: this.state[goods] + count });
+  };
 
-    render() {
-        return (
-            <dev className={style.main}>
-                {data.map((cardData) => (
-                    <Card
-                        cardData={cardData} 
-                        key={cardData.key}
-                        counter={this.state[cardData.id]}
-                        onCounterChange={this.onCounterChange} 
-                    />
-                ))}
-            </dev>
-        )
-    }
+  render() {
+    return (
+      <div className={styles.main}>
+        {data.map((cardData) => (
+          <Card cardData={cardData} key={cardData.key} onBuy={this.onBuy} />
+        ))}
+        <div>
+          Корзина:
+          <p>Чайник: {this.state.kettle}</p>
+          <p>Тостер: {this.state.toster}</p>
+          <p>Миксер: {this.state.mixer}</p>
+          <button type="button" onClick={() => this.setState(DEFAULT_STATE)}>
+            Очистить корзину
+          </button>
+        </div>
+      </div>
+    );
+  }
 }
