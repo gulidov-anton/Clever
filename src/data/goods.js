@@ -1,4 +1,4 @@
-export const goods = [
+export const data = [
     {
         title: 'Чайник',
         id: "kettle",
