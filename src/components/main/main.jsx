@@ -1,15 +1,19 @@
-import React from 'react';
-import { Card } from '../card';
-import { goods } from '../../data/goods';
-import style from './main.module.css';
+import React from "react";
 
+import { Cards } from "../cards";
+import { Todo } from "../todo";
+import { Counter } from '../counter';
+
+import styles from "./main.module.css";
 
 export class Main extends React.Component {
-    render() {
-        return (
-            <main className={style.main}>
-                {goods.map((item) => <Card id={item.id} title={item.title} srcImg={item.srcImg} price={item.price}/>)}
-            </main>
-        )
-    }
+  render() {
+    return (
+      <div className={styles.main}>
+        <Cards />
+        <Todo />
+        <Counter />
+      </div>
+    );
+  }
 }

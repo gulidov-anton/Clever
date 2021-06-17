@@ -1,12 +1,15 @@
-import React from 'react';
-import { Header } from '../header';
-import { Main } from '../main';
+import React from "react";
 
-import './app.css';
+import { Header } from "../header";
+import { Main } from "../main";
 
-export const App = () => (
+import "./app.css";
+
+export const App = (props) => {
+  return (
     <div className="app">
-        <Header />
-        <Main />
+      <Header />
+      <Main store={props.store} />
     </div>
-)
+  );
+};
