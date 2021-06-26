@@ -12,7 +12,7 @@ export const Todo = () => {
       {
         key: Date.now(),
         task: text,
-        status: 'do'
+        status: 'do',
       }
   ]);
     setText('');

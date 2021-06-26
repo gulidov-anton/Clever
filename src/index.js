@@ -4,13 +4,16 @@ import './index.css';
 import { App as Apppes } from './components/app/';
 import reportWebVitals from './reportWebVitals';
 import { Store } from "./store";
+import { BrowserRouter as Router } from 'react-router-dom';
 
 const store = new Store();
 
 export const renderAll = () => {
   ReactDOM.render(
     <React.StrictMode>
-      <Apppes store={store} />
+      <Router>
+        <Apppes store={store} />
+      </Router>
     </React.StrictMode>,
     document.getElementById("root")
   );
