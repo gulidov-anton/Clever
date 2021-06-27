@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { Header } from "../header";
 import { Main } from "../main";
 import { SidePanel } from "../sidepanel";
@@ -14,12 +14,14 @@ export const App = (props) => {
       <Header />
       <Main store={props.store} />
       <SidePanel />
-      <Route path='/todo'>
-        <Todo />
-      </Route>
-      <Route path='counter'>
-        <Counter />
-      </Route>
+      <Switch>
+        <Route path='/todo'>
+          <Todo />
+        </Route>
+        <Route path='/counter'>
+          <Counter />
+        </Route>
+      </Switch>
     </div>
   );
 };
