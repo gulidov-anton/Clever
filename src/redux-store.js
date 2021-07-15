@@ -1,8 +1,8 @@
 import { createStore } from 'redux';
 
 const INITIAL_STATE = {
-    name: 'Evgen',
-    age: 30,
+    name: 'Anton',
+    age: 33,
 }
 
 const reducer = (state = INITIAL_STATE,  action) => {
