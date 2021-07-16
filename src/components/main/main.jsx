@@ -1,4 +1,5 @@
 import React from "react";
+import { Purchases } from "../purchases";
 
 import { Cards } from "../cards";
 
@@ -9,6 +10,7 @@ export class Main extends React.Component {
     return (
       <div className={styles.main}>
         <Cards />
+        <Purchases />
       </div>
     );
   }

@@ -1,0 +1,10 @@
+.purchases {
+    background: rgb(241, 227, 227);
+    padding: 16px;
+}
+
+.buyButton {
+    border: 1px solid grey;
+    padding: 8px;
+    margin: 8px;
+}

@@ -1,19 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import { App as Apppes } from './components/app/';
-import reportWebVitals from './reportWebVitals';
-import { Store } from "./store";
-import { BrowserRouter as Router } from 'react-router-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import { App } from "./components/app";
+import { BrowserRouter as Router } from "react-router-dom";
+import { Provider } from "react-redux";
 
-const store = new Store();
+import { store } from "./store/store";
 
 export const renderAll = () => {
   ReactDOM.render(
     <React.StrictMode>
-      <Router>
-        <Apppes store={store} />
-      </Router>
+      <Provider store={store}>
+        <Router>
+          <App />
+        </Router>
+      </Provider>
     </React.StrictMode>,
     document.getElementById("root")
   );
