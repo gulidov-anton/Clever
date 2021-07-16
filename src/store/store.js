@@ -6,11 +6,9 @@ import { rootSaga } from "./root-saga";
 
 import { tableReducer } from "./table";
 import { messagesReducer } from "./messages";
-import { userReducer } from "./user";
 
 const rootReducer = combineReducers({
   table: tableReducer,
-  user: userReducer,
   main: reducer,
   messages: messagesReducer,
 });
