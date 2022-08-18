@@ -9,8 +9,7 @@ export class Header extends React.Component {
         return (
             <header className={style.header}>
                 <img src={logo} alt="atom" className={style.logo}/>
-                <div style={{backgroundColor: bool ? "yellow" : "green"}}>Надпись</div>
-                HEADER
+                <div style={{backgroundColor: bool ? "yellow" : "green"}}>HEADER</div>
             </header>
         )
     }

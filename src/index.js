@@ -3,13 +3,23 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import { App as Apppes } from './components/app/';
 import reportWebVitals from './reportWebVitals';
+import { Store } from "./store";
+import { BrowserRouter as Router } from 'react-router-dom';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Apppes />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const store = new Store();
+
+export const renderAll = () => {
+  ReactDOM.render(
+    <React.StrictMode>
+      <Router>
+        <Apppes store={store} />
+      </Router>
+    </React.StrictMode>,
+    document.getElementById("root")
+  );
+};
+
+renderAll();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
